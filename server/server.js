@@ -30,3 +30,37 @@ app.use((req, res, next) => {
     ******************\n`)
     next();
 });
+
+
+//! ADD ROUTE HANDLERS HERE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 404 Route Handler
+app.use((req, res, next) => {
+    res.status(404).send('404 Not Found');
+})
+
+// Global Error Handler
+//! Need to improve this code to accept unique errors from middleware
+app.use((err, req, res, next) => {
+    console.log('GLOBAL ERROR HANDLER', err);
+    res.status(500).send({ error: err });
+})
+
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}...`);
+});
+
+module.exports = app;
