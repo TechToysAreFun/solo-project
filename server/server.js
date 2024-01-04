@@ -42,23 +42,24 @@ app.use((req, res, next) => {
 
 
 
-
-
-
-
-
 // 404 Route Handler
 app.use((req, res, next) => {
     res.status(404).send('404 Not Found');
 })
 
 // Global Error Handler
-//! Need to improve this code to accept unique errors from middleware
 app.use((err, req, res, next) => {
-    console.log('GLOBAL ERROR HANDLER', err);
-    res.status(500).send({ error: err });
+    const defaultErr = {
+        log: 'Express error handler caught unknown middleware error',
+        status: 500,
+        message: { err: 'An error occured' },
+    };
+    const errorObj = Object.assign({}, defauultErr, err);
+    console.log('Global Error: ', errorObj.log);
+    return res.status(errorObj.status).json(errorObj.message);
 })
 
+// Start Server
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}...`);
 });
