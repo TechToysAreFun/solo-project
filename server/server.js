@@ -1,7 +1,5 @@
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
-const mongoose = require('mongoose');
 
 
 //! Import middleware here
@@ -10,8 +8,7 @@ const mongoose = require('mongoose');
 const PORT = 3000;
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded);
-app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
 
 //! Import SQL database here
 
@@ -33,7 +30,10 @@ app.use((req, res, next) => {
 
 
 //! ADD ROUTE HANDLERS HERE
-
+app.get('/', (req, res) => {
+    console.log('TESTING INDEX GET ROUTE')
+    res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
+})
 
 
 

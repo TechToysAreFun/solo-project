@@ -1,0 +1,13 @@
+CREATE TABLE users (
+    firstName varchar(225),
+    lastName varchar(255),
+    age int,
+    city varchar(255),
+    company varchar(225)
+);
+
+
+INSERT INTO users (firstName, lastName, age, city, company)
+VALUES ('Matt', 'Hart', 31, 'New York', 'Codesmith');
+
+
