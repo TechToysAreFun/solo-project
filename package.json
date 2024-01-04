@@ -1,0 +1,11 @@
+{
+  "name": "solo-project",
+  "version": "1.0.0",
+  "description": "Codesmith solo project 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Hart",
+  "license": "ISC"
+}
