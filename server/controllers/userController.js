@@ -3,6 +3,8 @@ const db = require('../models/dataModel');
 const userController = {};
 
 userController.addUser = (req, res, next) => {
+
+    console.log('Testing addUser middleware');
     // Store user information from body into array
     const userInformation = [
         req.body.firstName,
@@ -11,6 +13,10 @@ userController.addUser = (req, res, next) => {
         req.body.city,
         req.body.company
     ];
+
+    console.log('userInformation: ', userInformation);
+    console.log('req.params: ', req.params);
+    console.log('req.body: ', req.body);
 
     // Write query to insert user into users table
     const addUserQuery = `INSERT INTO users (

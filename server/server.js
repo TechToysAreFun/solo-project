@@ -1,20 +1,17 @@
 const express = require('express');
 const path = require('path');
 
-
 //! Import middleware here
-
+const userController = require('./controllers/userController');
 
 const PORT = 3000;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//! Import SQL database here
-
 
 // Server static files
-app.use('/client', express.static(path.resolve(__dirname, '../client')));
+app.use('/', express.static(path.resolve(__dirname, '../client')));
 
 
 // Log all route calls
@@ -29,15 +26,19 @@ app.use((req, res, next) => {
 });
 
 
-//! ADD ROUTE HANDLERS HERE
-app.get('/', (req, res) => {
-    console.log('TESTING INDEX GET ROUTE')
-    res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
-})
 
 
+app.get('/',
+    (req, res) => {
+        res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
+    })
 
-
+app.post('/newUser',
+    userController.addUser,
+    (req, res) => {
+        console.log(req.body);
+        res.status(200).redirect('/');
+    })
 
 
 
@@ -54,7 +55,7 @@ app.use((err, req, res, next) => {
         status: 500,
         message: { err: 'An error occured' },
     };
-    const errorObj = Object.assign({}, defauultErr, err);
+    const errorObj = Object.assign({}, defaultErr, err);
     console.log('Global Error: ', errorObj.log);
     return res.status(errorObj.status).json(errorObj.message);
 })

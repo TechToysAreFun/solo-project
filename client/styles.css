@@ -1,0 +1,12 @@
+body {
+    background-color: grey;
+}
+
+.form-input {
+    display: block;
+    background-color: lightgray;
+}
+
+#submit-button {
+    background-color: lightgrey;
+}

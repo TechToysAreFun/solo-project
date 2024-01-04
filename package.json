@@ -10,15 +10,18 @@
   "author": "Matt Hart",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.16.3",
     "express-session": "^1.13.0",
+    "express-validator": "^7.0.1",
     "node-fetch": "^2.3.0",
+    "nodemon": "^1.8.1",
+    "pg": "^8.11.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.6.3",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "nodemon": "^1.8.1"
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -32,14 +35,14 @@
     "eslint-plugin-react": "^7.21.5",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "mongoose": "6.7.5",
     "nodemon": "^2.0.15",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.64.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.5.0",
-    "webpack-hot-middleware": "^2.24.3",
-    "mongoose": "6.7.5"
+    "webpack-hot-middleware": "^2.24.3"
   },
   "nodemonConfig": {
     "ignore": [
